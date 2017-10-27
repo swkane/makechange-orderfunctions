@@ -16,3 +16,32 @@ function waysToChange(value) {
   }
   return numberOfWays;
 }
+
+// 20 larges
+// 9 mediums
+// 6 smalls
+
+function waysToOrder(value) {
+  let numberOfWays = 0;
+  let larges = 0;
+  while (larges <= value/20) {
+    let mediums = 0;
+    while (mediums <= (value-larges*20)/9) {
+      let smalls = 1;
+      while (smalls <= (value-larges*20-mediums*9)/6) {
+        // make sure that there is no remainder in order to increment, x%y === 0
+        if (value-larges*20-mediums*9-smalls*6 === 0) {
+          console.log("larges: ", larges, "mediums: ", mediums, "smalls: ", smalls);
+          numberOfWays++;
+          smalls++;
+        } else {
+          console.log("Cannot reach number");
+          break;
+        }
+      }
+      mediums++;
+    }
+    larges++;
+  }
+  return numberOfWays;
+}
