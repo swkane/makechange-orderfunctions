@@ -33,11 +33,10 @@ function waysToOrder(value) {
         if (value-larges*20-mediums*9-smalls*6 === 0) {
           console.log("larges: ", larges, "mediums: ", mediums, "smalls: ", smalls);
           numberOfWays++;
-          smalls++;
         } else {
           console.log("Cannot reach number");
-          break;
         }
+        smalls++;
       }
       mediums++;
     }
